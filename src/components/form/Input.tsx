@@ -1,5 +1,7 @@
 interface propsInput {
-    type: 'text' | 'password'
+    inputType: 'text' | 'password' | 'email',
+    inputValue: string,
+    onChangeInput: (event: any) => void
 }
 
 export default function Input(props: propsInput) {
@@ -11,6 +13,8 @@ export default function Input(props: propsInput) {
                 bg-almostWhite
                 focus:outline-1 focus:outline-primary-500
             `}
-            type={props.type} />
+            type={props.inputType}
+            value={props.inputValue}
+            onChange={props.onChangeInput} />
     )
 }

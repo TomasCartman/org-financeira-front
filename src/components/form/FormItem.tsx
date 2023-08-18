@@ -3,14 +3,17 @@ import Input from "@/components/form/Input"
 
 interface propsFormItem {
     label: string,
-    type: 'text' | 'password'
+    inputType: 'text' | 'password' | 'email',
+    inputValue: string,
+    onChangeInput: (event: any) => void
 }
 
 export default function FormItem(props: propsFormItem) {
     return (
         <div className="w-full">
             <Label label={props.label}/>
-            <Input type={props.type} />
+            <Input inputType={props.inputType} onChangeInput={props.onChangeInput}
+                inputValue={props.inputValue} />
         </div>
     )
 }
